@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Layout</title>
+  <style>
+    body {
+      --flex-bg: #eeeeee;
+      --flex-item-bg: #fbef04;
+      --flex-item-border: #ffea2e;
+      --theme-bg: #007fff;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+
+    #table_flex_1 {
+      width: 98%;
+    }
+
+    .no-select {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -khtml-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .flex {
+      display: flex;
+      background: var(--flex-bg) !important;
+      border-radius: 8px;
+      padding: 8px;
+    }
+
+    #table_flex_1 th {
+      min-width: 250px;
+    }
+
+    .not-tall {
+      height: 50px;
+      line-height: 50px;
+    }
+
+    .super-wide {
+      width: 100%;
+    }
+
+    .item {
+      font-size: 28px;
+      font-weight: bold;
+      border-radius: 8px;
+      min-width: 100px;
+      text-align: center;
+      background: var(--flex-item-bg);
+      /* box-shadow: inset 8px 8px 10px #ffffff, inset -3px -3px 10px #ff1919; */
+      color: var(--flex-item-color);
+      margin: 8px;
+    }
+
+    .write-for-us {
+      padding: 14px;
+      margin: 14px;
+      background: var(--theme-bg);
+      border: 2px solid transparent;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .write-for-us:hover {
+      color: var(--theme-bg) !important;
+      background-color: transparent !important;
+      border-color: var(--theme-bg) !important;
+    }
+
+    .pointer {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <table id="table_flex_1">
+    <tbody>
+      <tr>
+        <th style="width: 250px">
+          <h3>stretch</h3>
+          <p>（自动拉伸子元素，直到铺满父容器为止）</p>
+        </th>
+        <td style="width: 100%">
+          <div class="flex no-select" style="justify-content: stretch; height: 82px; width: 100%;">
+            <div class="item not-tall super-wide">1</div>
+            <div class="item not-tall super-wide">2</div>
+            <div class="item not-tall super-wide">3</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h3>space-between</h3>
+          <p>（第一个元素与头部对齐，最后一个元素与尾部对齐。然后相邻元素间距离相同。）</p>
+        </th>
+        <td>
+          <div class="flex no-select" style="justify-content: space-between; height: 82px; width: 100%;">
+            <div class="item not-tall">1</div>
+            <div class="item not-tall">2</div>
+            <div class="item not-tall">3</div>
+          </div>
+        </td>
+      </tr>
+
+
+      <tr>
+        <th>
+          <h3>space-around</h3>
+          <p>（居中均分剩余空隙间距的布局方式，首尾间隙是元素间隙的一半）</p>
+        </th>
+        <td>
+          <div class="flex no-select" style="justify-content: space-around; height: 82px; width: 100%;">
+            <div class="item not-tall">1</div>
+            <div class="item not-tall">2</div>
+            <div class="item not-tall">3</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th>
+          <h3>space-evenly</h3>
+          <p>（居中均分剩余空隙间距的布局方式，首尾的间隙和元素间隙一样）</p>
+        </th>
+        <td>
+          <div class="flex not-tall no-select" style="justify-content: space-evenly; height: 82px; width: 100%;">
+            <div class="item not-tall">1</div>
+            <div class="item not-tall">2</div>
+            <div class="item not-tall">3</div>
+          </div>
+        </td>
+      </tr>
+
+      <tr>
+        <th>
+          <h3>center</h3>
+          <p>（居中排列）</p>
+        </th>
+        <td>
+          <div class="flex not-tall no-select" style="justify-content: center; height: 82px; width: 100%;">
+            <div class="item not-tall">1</div>
+            <div class="item not-tall">2</div>
+            <div class="item not-tall">3</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h3>left</h3>
+          <p>（一个挨一个在对齐容器得左边缘）</p>
+        </th>
+        <td>
+          <div class="flex not-tall no-select" style="justify-content: left; height: 82px; width: 100%;">
+            <div class="item not-tall">1</div>
+            <div class="item not-tall">2</div>
+            <div class="item not-tall">3</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h3>right</h3>
+          <p>（元素以容器右边缘为基准，一个挨着一个对齐）</p>
+        </th>
+        <td>
+          <div class="flex not-tall no-select" style="justify-content: right; height: 82px; width: 100%;">
+            <div class="item not-tall">1</div>
+            <div class="item not-tall">2</div>
+            <div class="item not-tall">3</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h3>flex-start</h3>
+          <p>（默认值，从flex主轴的方向从行首起始位置开始排列 ）</p>
+        </th>
+        <td>
+          <div class="flex not-tall no-select" style="justify-content: flex-start; height: 82px; width: 100%;">
+            <div class="item not-tall">1</div>
+            <div class="item not-tall">2</div>
+            <div class="item not-tall">3</div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <th>
+          <h3>flex-end</h3>
+          <p>（从flex主轴的方向从行尾位置开始排列）</p>
+        </th>
+        <td>
+          <div class="flex not-tall no-select" style="justify-content: flex-end; height: 82px; width: 100%;">
+            <div class="item not-tall">1</div>
+            <div class="item not-tall">2</div>
+            <div class="item not-tall">3</div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>
